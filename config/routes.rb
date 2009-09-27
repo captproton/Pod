@@ -9,5 +9,8 @@ ActionController::Routing::Routes.draw do |map|
   map.logout "logout", :controller => "user_sessions", :action => "destroy"
   map.signup '/signup/:invitation_token', :controller => 'users', :action => 'new'
   
+  map.importpeople '/import_people', :controller => 'import_people', :action => 'index'
+  map.csvimportpeople '/import_people/csv_import', :controller => 'import_people', :action => 'csv_import'
+  
   map.root :controller => "user_sessions", :action => "new"
 end
