@@ -25,7 +25,25 @@ Rails::Initializer.run do |config|
   # config.gem "bj"
   # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
   # config.gem "aws-s3", :lib => "aws/s3"
+
   config.gem "authlogic"
+  config.gem "mbleigh-acts-as-taggable-on", :source => "http://gems.github.com", :lib => "acts-as-taggable-on"
+  config.gem "fastercsv", :lib => "fastercsv", :version => ">= 1.0.0"
+  config.gem "httparty"
+  
+
+  ## Testing suite
+  config.gem 'thoughtbot-shoulda', :lib => 'shoulda/rails', :source => "http://gems.github.com"
+  config.gem 'webrat', :lib => "webrat", :source => "http://gems.github.com"
+  config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
+  config.gem 'redgreen', :version=> "1.2.2"
+  
+  ## Required for Heroku's cloud and saving to S3
+  config.gem "openrain-action_mailer_tls", :version => '1.1.3', :lib => "smtp_tls", :source => "http://gems.github.com"
+  config.gem 'thoughtbot-paperclip', :version => '2.2.9.2', :lib => 'paperclip', :source => 'http://gems.github.com'
+  config.gem 'right_aws', :version => '1.9.0' # TODO change to aws-s3 when paperclip does; right_aws 1.10.0 acts funny
+  config.gem 'right_http_connection', :version => '1.2.4'
+  
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.

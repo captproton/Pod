@@ -1,0 +1,39 @@
+<% title "People" %>
+
+<table>
+  <tr>
+    <th>Last Name</th>
+    <th>Last Name 1</th>
+    <th>Last Name 2</th>
+    <th>First Name</th>
+    <th>Address</th>
+    <th>Telephone</th>
+    <th>Parents</th>
+    <th>Email</th>
+    <th>Classroom</th>
+    <th>Count</th>
+    <th>Corrected</th>
+    <th>Classroom Job</th>
+  </tr>
+  <% for person in @people %>
+    <tr>
+      <td><%=h person.last_name %></td>
+      <td><%=h person.last_name_1 %></td>
+      <td><%=h person.last_name_2 %></td>
+      <td><%=h person.first_name %></td>
+      <td><%=h person.address %></td>
+      <td><%=h person.telephone %></td>
+      <td><%=h person.parents %></td>
+      <td><%=h person.email %></td>
+      <td><%=h person.classroom %></td>
+      <td><%=h person.count %></td>
+      <td><%=h person.corrected %></td>
+      <td><%=h person.classroom_job %></td>
+      <td><%= link_to "Show", person %></td>
+      <td><%= link_to "Edit", edit_person_path(person) %></td>
+      <td><%= link_to "Destroy", person, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Person", new_person_path %></p>

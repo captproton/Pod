@@ -1,0 +1,56 @@
+<% title "Person" %>
+
+<p>
+  <strong>Last Name:</strong>
+  <%=h @person.last_name %>
+</p>
+<p>
+  <strong>Last Name 1:</strong>
+  <%=h @person.last_name_1 %>
+</p>
+<p>
+  <strong>Last Name 2:</strong>
+  <%=h @person.last_name_2 %>
+</p>
+<p>
+  <strong>First Name:</strong>
+  <%=h @person.first_name %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%=h @person.address %>
+</p>
+<p>
+  <strong>Telephone:</strong>
+  <%=h @person.telephone %>
+</p>
+<p>
+  <strong>Parents:</strong>
+  <%=h @person.parents %>
+</p>
+<p>
+  <strong>Email:</strong>
+  <%=h @person.email %>
+</p>
+<p>
+  <strong>Classroom:</strong>
+  <%=h @person.classroom %>
+</p>
+<p>
+  <strong>Count:</strong>
+  <%=h @person.count %>
+</p>
+<p>
+  <strong>Corrected:</strong>
+  <%=h @person.corrected %>
+</p>
+<p>
+  <strong>Classroom Job:</strong>
+  <%=h @person.classroom_job %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_person_path(@person) %> |
+  <%= link_to "Destroy", @person, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", people_path %>
+</p>

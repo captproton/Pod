@@ -1,0 +1,27 @@
+one:
+  last_name: MyString
+  last_name_1: MyString
+  last_name_2: MyString
+  first_name: MyString
+  address: MyString
+  telephone: MyString
+  parents: MyString
+  email: MyString
+  classroom: MyString
+  count: 1
+  corrected: MyString
+  classroom_job: MyString
+
+two:
+  last_name: MyString
+  last_name_1: MyString
+  last_name_2: MyString
+  first_name: MyString
+  address: MyString
+  telephone: MyString
+  parents: MyString
+  email: MyString
+  classroom: MyString
+  count: 1
+  corrected: MyString
+  classroom_job: MyString
