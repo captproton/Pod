@@ -1,0 +1,43 @@
+<% title "Articles" %>
+
+
+<% for article in @articles %>
+
+<div class="post entry">
+	<div class="date">
+  Last updated: <%=h article.updated_at.strftime("%A, %B %d, %Y") %>
+
+  </div>
+  <h3 class="entry-title">
+    <%= link_to article.title, article %>
+  </h3>
+	<%= h(truncate(article.body, 280)) %>
+
+   
+
+  <p class="post_info">
+
+    Posted by
+    <span class="author vcard fn">
+      
+        <%=h article.author.login %>
+      
+    </span>
+    | <%= link_to pluralize(article.comments_count, 'comment'), article_path(article) %>
+	  <%# link_to "Edit", edit_article_path(article) %>
+      <%# link_to "Destroy", article, :confirm => 'Are you sure?', :method => :delete %>
+
+    
+    <!--Tagged with: <a href="http://www.chow.com/blog/tag/san-francisco-bay-area">san francisco bay area</a>, <a href="http://www.chow.com/blog/tag/restaurants-and-bars">restaurants and bars</a>, <a href="http://www.chow.com/blog/tag/uni">uni</a>, <a href="http://www.chow.com/blog/tag/anchor-&amp;-hope">anchor & hope</a>, <a href="http://www.chow.com/blog/tag/anchor-and-hope">anchor and hope</a>, <a href="http://www.chow.com/blog/tag/tanuki">tanuki</a>, <a href="http://www.chow.com/blog/tag/koo">koo</a>, <a href="http://www.chow.com/blog/tag/la-ciccia">la ciccia</a>, <a href="http://www.chow.com/blog/tag/bar-crudo">bar crudo</a>, <a href="http://www.chow.com/blog/tag/ame">ame</a>, <a href="http://www.chow.com/blog/tag/french-laundry">french laundry</a>, <a href="http://www.chow.com/blog/tag/sea-urchin">sea urchin</a> -->
+  </p>
+  
+  
+
+</div>
+
+<div class="clear"></div>
+<hr />
+<% end %>
+
+
+<p><%# link_to "New Article", new_article_path %></p>

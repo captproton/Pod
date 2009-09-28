@@ -1,0 +1,28 @@
+<% title "Article" %>
+
+
+<div class="post entry single">
+  <h3 class="entry-title">
+	<%=h @article.title %>   
+  </h3>
+<!-- <p class="entry-summary" style="display: none;">Sea urchin isn’t just for sushi.</p> -->
+  
+
+<%=h @article.body %>
+
+  <p class="post_info">
+    Posted by
+    <span class="author vcard fn">
+      
+        <%=h @article.author.login %>
+      
+    </span>
+    | <%= h @article.updated_at %> 
+    | <%= link_to pluralize(@article.comments_count, 'comment'), article_path(@article) %>
+	| Article Home: <%= h(@article.spiel_list) %><br />
+	Tags: <%= h(@article.tag_list) %>
+    <!--Tagged with: <a href="http://www.chow.com/blog/tag/san-francisco-bay-area">san francisco bay area</a>, <a href="http://www.chow.com/blog/tag/restaurants-and-bars">restaurants and bars</a>, <a href="http://www.chow.com/blog/tag/uni">uni</a>, <a href="http://www.chow.com/blog/tag/anchor-&amp;-hope">anchor & hope</a>, <a href="http://www.chow.com/blog/tag/anchor-and-hope">anchor and hope</a>, <a href="http://www.chow.com/blog/tag/tanuki">tanuki</a>, <a href="http://www.chow.com/blog/tag/koo">koo</a>, <a href="http://www.chow.com/blog/tag/la-ciccia">la ciccia</a>, <a href="http://www.chow.com/blog/tag/bar-crudo">bar crudo</a>, <a href="http://www.chow.com/blog/tag/ame">ame</a>, <a href="http://www.chow.com/blog/tag/french-laundry">french laundry</a>, <a href="http://www.chow.com/blog/tag/sea-urchin">sea urchin</a> -->
+  </p>
+  
+
+</div>

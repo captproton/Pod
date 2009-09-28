@@ -1,0 +1,21 @@
+<% form_for @article do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+<p>
+	<%= f.label :spiel_list, "Article Section" %><br />
+	<%= f.select :spiel_list, ['resource', 'classroom', 'donation', 'news'] %>
+</p>
+
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :rows => '5', :cols => '50' %>
+  </p>
+<p>
+	<%= f.label :tag_list %><br />
+	<%= f.text_field :tag_list %>
+</p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

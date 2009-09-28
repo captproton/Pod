@@ -4,7 +4,6 @@
 <p>
 	<%= f.label :paper_list, "Document Type" %><br />
 	<%= f.select :paper_list, ['form', 'bulletin', 'newsletter'] %>
-	Yes <%# f.radio_button('document', "title", "title") %>
 </p>
 <p>
 	<%= f.label :tag_list %><br />
@@ -16,7 +15,7 @@
   </p>
   <p>
     <%= f.label :description %><br />
-    <%= f.text_area :description %>
+    <%= f.text_area :description, :rows => '5', :cols => '50'  %>
   </p>
 
 <p>

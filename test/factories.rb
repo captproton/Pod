@@ -15,3 +15,11 @@ Factory.define :document do |f|
   f.tag_list "red, green"
   f.paper_list "form"
 end
+
+Factory.define :article do |f|
+  f.title "Lifo without fifo"
+  f.body "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. "
+  f.spiel_list "cafeteria"
+  f.classroom_list "clair"
+  f.tag_list "interesting"
+end
