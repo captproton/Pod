@@ -1,5 +1,15 @@
 <% form_for @document, :html => { :multipart => true }  do |f| %>
   <%= f.error_messages %>
+
+<p>
+	<%= f.label :paper_list, "Document Type" %><br />
+	<%= f.select :paper_list, ['form', 'bulletin', 'newsletter'] %>
+	Yes <%# f.radio_button('document', "title", "title") %>
+</p>
+<p>
+	<%= f.label :tag_list %><br />
+	<%= f.text_field :tag_list %>
+</p>
   <p>
     <%= f.label :title %><br />
     <%= f.text_field :title %>

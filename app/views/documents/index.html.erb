@@ -2,11 +2,14 @@
 
 <table>
   <tr>
+	<th>Date</th>
     <th>Title</th>
     <th>Description</th>
   </tr>
   <% for document in @documents %>
     <tr>
+		<td><%= h document.published_on.strftime("%b %d, %Y")  %>
+		</td>
       <td><%=h document.title %></td>
       <td><%=h document.description %></td>
       <td><%= link_to "Destroy", document, :confirm => 'Are you sure?', :method => :delete %></td>

@@ -1,7 +1,7 @@
 class Document < ActiveRecord::Base
   
 attr_accessible :title, :description, :published_on
-
+acts_as_taggable_on :tags, :papers
   
   include PaperclipSupport
   

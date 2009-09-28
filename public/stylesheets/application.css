@@ -79,3 +79,11 @@ a {
   font-size: 12px;
   list-style: disc;
 }
+
+#user_bar {
+  float: right;
+  background-color: #DDD;
+  border: solid 1px black;
+  padding: 1px 10px;
+  font-size: 11px;
+}
