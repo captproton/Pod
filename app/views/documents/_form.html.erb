@@ -9,8 +9,11 @@
     <%= f.text_area :description %>
   </p>
 
+<p>
+	<%= f.label :published_on %><br />
+	<%= f.date_select(:published_on, :order => [:month, :day, :year ]) %>
+</p>
  <p>
-     <%= f.label :attachment, "Upload a Document (pdf please)" %>  
      <%= f.file_field :attachment %>  
  </p>
   <p><%= f.submit "Submit" %></p>

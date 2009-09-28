@@ -1,6 +1,6 @@
 class Document < ActiveRecord::Base
   
-attr_accessible :title, :description
+attr_accessible :title, :description, :published_on
 
   
   include PaperclipSupport

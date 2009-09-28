@@ -9,6 +9,10 @@
   <%=h @document.description %>
 </p>
 <p>
+	<strong>Published on</strong>
+	<%= h @document.published_on.strftime("%A, %B %d, %Y")  %>
+</p>
+<p>
 	<%= link_to "Download", @document.attachment.url %>
 </p>
 <p>
