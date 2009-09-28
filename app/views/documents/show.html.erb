@@ -1,0 +1,18 @@
+<% title "Document" %>
+
+<p>
+  <strong>Title:</strong>
+  <%=h @document.title %>
+</p>
+<p>
+  <strong>Description:</strong>
+  <%=h @document.description %>
+</p>
+<p>
+	<%= link_to "Download", @document.attachment.url %>
+</p>
+<p>
+  <%= link_to "Edit", edit_document_path(@document) %> |
+  <%= link_to "Destroy", @document, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", documents_path %>
+</p>

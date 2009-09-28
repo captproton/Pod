@@ -1,0 +1,17 @@
+<% title "Documents" %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+  </tr>
+  <% for document in @documents %>
+    <tr>
+      <td><%=h document.title %></td>
+      <td><%=h document.description %></td>
+      <td><%= link_to "Destroy", document, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Document", new_document_path %></p>

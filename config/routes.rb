@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :documents
+
   map.resources :people
 
   map.resource :account, :controller => "users"
