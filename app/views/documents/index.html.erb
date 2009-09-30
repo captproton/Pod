@@ -1,8 +1,9 @@
 <% title "Documents" %>
+<!--
 
 <table>
   <tr>
-	<th>Date</th>
+	<th>Date <%= params[:context] %></th>
     <th>Title</th>
     <th>Description</th>
   </tr>
@@ -18,3 +19,47 @@
 </table>
 
 <p><%= link_to "New Document", new_document_path %></p>
+-->
+
+
+<% for document in @documents %>
+
+<div class="post entry">
+	<div class="date">
+  Last updated: <%=h document.updated_at.strftime("%A, %B %d, %Y") %>
+
+  </div>
+  <h3 class="entry-title">
+    <%= link_to document.title, document %>
+  </h3>
+	<%= h(truncate(document.description, 280)) %>
+
+   
+
+<!--  <p class="post_info">
+
+    Posted by
+    <span class="author vcard fn">
+      
+        <%#h document.user_id.login %>
+      
+    </span> -->
+    <%= link_to pluralize(document.comments_count, 'comment'), document_path(document) %>
+	<% if editor? %>
+	 | <%= link_to "Edit", edit_document_path(document) %>
+     | <%= link_to "Destroy", document, :confirm => 'Are you sure?', :method => :delete %>
+	<% end %>
+    
+
+  </p>
+  
+  
+
+</div>
+
+<div class="clear"></div>
+<hr />
+<% end %>
+
+
+

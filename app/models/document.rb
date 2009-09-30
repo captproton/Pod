@@ -22,6 +22,11 @@ acts_as_taggable_on :tags, :papers
     %w(audio/mpeg audio/mpg).include?(attachment_content_type) ? true : false
   end
   
+  ## search for tagged items in respective context. Uses acts_as_taggable_on.x
+  def self.find_in_context(tag_list, context)
+    self.tagged_with(tag_list, :on => context.to_sym)
+  end
+  
   private
   
   def attachment_url_provided?

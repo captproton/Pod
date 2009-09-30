@@ -1,6 +1,8 @@
 require 'fastercsv' 
 
 class ImportPeopleController < ApplicationController
+  before_filter :require_user
+  
   def index
   end
 

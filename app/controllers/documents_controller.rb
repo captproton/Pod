@@ -1,9 +1,13 @@
 class DocumentsController < ApplicationController
-  before_filter :require_user, :only => [:show, :edit, :update]
+  before_filter :require_user
   
   def index
-    sort_by = (params[:order] == 'starts_at' ? 'starts_at desc' : 'name')
-    @documents = Document.find(:all, :order => 'published_on DESC') 
+    if params[:context]
+      tagging = params[:context].singularize
+      @documents = Document.find_in_context(tagging, 'papers')
+    else
+      @documents = Document.find(:all, :order => 'published_on DESC') 
+    end
   end
   
   def show
@@ -17,8 +21,8 @@ class DocumentsController < ApplicationController
   def create
     @document = Document.new(params[:document])
     @document.user = current_user
-    @document.paper_list = params[:document][:paper_list]
-    @document.tag_list = params[:document][:tag_list]
+    @document.paper_list = params[:document][:paper_list] if params[:document][:paper_list]
+    @document.tag_list = params[:document][:tag_list] if params[:document][:tag_list]
     if @document.save
       flash[:notice] = "Successfully created document."
       redirect_to @document
@@ -33,6 +37,9 @@ class DocumentsController < ApplicationController
   
   def update
     @document = Document.find(params[:id])
+    @document.user = current_user
+    @document.paper_list = params[:document][:paper_list]
+    @document.tag_list = params[:document][:tag_list]
     if @document.update_attributes(params[:document])
       flash[:notice] = "Successfully updated document."
       redirect_to @document

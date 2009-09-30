@@ -3,7 +3,8 @@ class UsersController < ApplicationController
   before_filter :require_user, :only => [:show, :edit, :update]
   
   def new
-    @user = User.new
+    @user = User.new(:invitation_token => params[:invitation_token])
+    @user.email = @user.invitation.recipient_email if @user.invitation
   end
   
   def create
@@ -12,6 +13,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Account registered!"
       redirect_back_or_default account_url
     else
+      flash[:error] = "We couldn't set that up, sorry.  Please try again, or contact an Admin with the Feedback page."
       render :action => :new
     end
   end

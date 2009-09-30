@@ -3,7 +3,7 @@
 
 class ApplicationController < ActionController::Base
   helper :all
-  helper_method :current_user_session, :current_user
+  helper_method :current_user_session, :current_user, :editor?
   filter_parameter_logging :password, :password_confirmation
   
   private
@@ -42,5 +42,17 @@ class ApplicationController < ActionController::Base
     def redirect_back_or_default(default)
       redirect_to(session[:return_to] || default)
       session[:return_to] = nil
+    end
+    
+    def authorize_editor
+      unless editor?
+        flash[:warn] = "Unauthorized access"
+        redirect_back_or_default account_url
+        false        
+      end
+    end
+    
+    def editor?
+      current_user.editor?
     end
 end

@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :invitations
+
   map.resources :articles
 
   map.resources :documents
@@ -16,5 +18,10 @@ ActionController::Routing::Routes.draw do |map|
   map.importpeople '/import_people', :controller => 'import_people', :action => 'index'
   map.csvimportpeople '/import_people/csv_import', :controller => 'import_people', :action => 'csv_import'
   
-  map.root :controller => "user_sessions", :action => "new"
+  map.docs '/docs/:context/', :controller => 'documents', :action => 'index'
+  map.stories '/stories/:context/', :controller => 'articles', :action => 'index'
+
+  map.root :controller => "frontdoor", :action => "index"
+  
+  #map.root :controller => "user_sessions", :action => "new"
 end

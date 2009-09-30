@@ -1,2 +1,11 @@
-<h1>Frontdoor#index</h1>
-<p>Find me in app/views/frontdoor/index.html.erb</p>
+<% title "Welcome to Pod" %>
+
+<p>Welcome to Pod, a website dedicated to serve the members of Ocean Shore School PTO.  If you have already received your invitation, please <%= link_to "login", login_path %>.  If don't have an account yet, please fill out the form below.'</p>
+
+<% form_for Invitation.new do |f| %>
+  <p>
+    <%= f.label :recipient_email, "Your Email:" %>
+    <%= f.text_field :recipient_email %>
+    <%= f.submit 'Get Invite!' %>
+  </p>
+<% end %>

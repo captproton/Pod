@@ -1,6 +1,14 @@
 class ArticlesController < ApplicationController
+  before_filter :require_user
+  before_filter :authorize_editor => [:index, :show]
   def index
-    @articles = Article.all
+    if params[:context]
+      tagging = params[:context].singularize
+      @articles = Article.find_in_context(tagging, 'spiels')
+    else
+      @articles = Article.find(:all, :order => 'updated_at DESC') 
+    end
+    
   end
   
   def show

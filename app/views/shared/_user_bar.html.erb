@@ -1,15 +1,15 @@
 <div id="user_bar">
 <% if current_user %>
   <p>Welcome <%= current_user.login %> | 
-	<%= link_to "Edit Profile", edit_user_path(:current) %> |
+	<%= link_to "Edit Profile", edit_account_path %> |
   	<%= link_to "Logout", logout_path %>
   </p>
-  <%# if current_user.invitation_limit > 0 %>
+  <% if current_user.invitation_limit > 0 %>
     <p>
-      <%# link_to 'Send invitation', new_invitation_path %>
-      (<%# current_user.invitation_limit %> left)
+      <%= link_to 'Send an invitation', new_invitation_path %>
+      (<%= current_user.invitation_limit %> left)
     </p>
-  <%# end %>
+  <% end %>
 <% else %>
   <p>If you have an account, <%= link_to "Log-in", login_path %></p>
 <% end %>

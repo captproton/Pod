@@ -50,7 +50,9 @@
 </p>
 
 <p>
+	<% if editor? %>
   <%= link_to "Edit", edit_person_path(@person) %> |
   <%= link_to "Destroy", @person, :confirm => 'Are you sure?', :method => :delete %> |
+	<% end %>
   <%= link_to "View All", people_path %>
 </p>
