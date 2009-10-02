@@ -850,3 +850,12 @@ width: 190px
 #bcards-little .b-card .grey-frame-inner {
 height: 350px
 }
+
+//Railscasts
+#user_bar {
+  float: right;
+  background-color: #DDD;
+  border: solid 1px black;
+  padding: 1px 10px;
+  font-size: 11px;
+}

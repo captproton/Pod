@@ -10,8 +10,10 @@
 	<style type="text/css">@import url('/stylesheets/application.css');</style>
   <%= javascript_include_tag "prototype", "audio_player", "calendar_date_select", "prototip", :cache => true %>
 </head>
-<body>
+<body>    
   <div class="wrapper">
+	<%= render :partial => 'shared/user_bar' %>
+	
     <div class="header">
       <h1>Pod</h1>
       <div class="tagline">
