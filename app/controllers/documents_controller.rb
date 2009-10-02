@@ -5,7 +5,7 @@ class DocumentsController < ApplicationController
   # Editor has access to "new", "edit" and "create" and "update" but not "destroy"
   grant_access_to :staff, :except => [:destroy]
   
-  grant_access_to "admin"
+  grant_access_to :admin
   
   def index
     if params[:context]
