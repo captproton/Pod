@@ -23,7 +23,7 @@
       <td><%=h person.first_name %></td>
       <td><%=h person.address %></td>
       <td><%=h person.telephone %></td>
-      <td><%= link_to h person.parents, person %></td>
+      <td><%= link_to person.parents, person %></td>
       <td><%= mail_to person.email, person %></td>
       <td><%=h person.classroom %></td>
       <td><%=h person.count %></td>
