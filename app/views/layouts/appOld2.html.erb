@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+  <head>
+    <title><%= h(yield(:title) || "Ocean Shore School - Pod") %></title>
+    <%= stylesheet_link_tag 'application' %>
+    <%= yield(:head) %>
+  </head>
+  <body>
+    <div id="container">
+      
+      <%- flash.each do |name, msg| -%>
+        <%= content_tag :div, msg, :id => "flash_#{name}" %>
+      <%- end -%>
+      
+      <%= render :partial => 'shared/user_bar' %>
+	<div id="nav-menu">
+		<ul>
+		<li><%= link_to_unless_current("Home", '/account') %></li>
+	    <li><%= link_to_unless_current("Resources", '/stories/resources') %> </li>
+	    <li><%= link_to_unless_current("Forms", '/docs/forms') %></li>
+	    <li><%= link_to_unless_current("Classrooms", '/stories/classrooms') %></li>
+	    <li><%= link_to_unless_current("Donations", '/stories/donations') %></li>
+	
+	    <li><%= link_to_unless_current("News", '/docs/news') %></li>
+	  </ul>
+	</div>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<p>&nbsp;</p>
+	<%- if show_title? -%>
+      <h1><%=h yield(:title) if !params[:context] %><%= params[:context].capitalize if params[:context] %>
+	</h1>
+    <%- end -%>
+    
+	<div class="bd" id="content">
+      <%= yield %>
+		
+	</div>
+<!--	&nbsp;|&nbsp;<%# link_to "About", page_path("about") %>&nbsp;|&nbsp;&copy; Oceanshore PTO&nbsp;|&nbsp; -->
+
+    </div>
+  </body>
+</html>

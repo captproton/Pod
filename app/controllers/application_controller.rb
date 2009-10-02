@@ -3,8 +3,10 @@
 
 class ApplicationController < ActionController::Base
   helper :all
-  helper_method :current_user_session, :current_user, :editor?
+  helper_method :current_user_session, :current_user
   filter_parameter_logging :password, :password_confirmation
+  ## RoleSystem plugin
+  before_filter { |controller| controller.role_player = :current_user }
   
   private
     def current_user_session
@@ -44,15 +46,4 @@ class ApplicationController < ActionController::Base
       session[:return_to] = nil
     end
     
-    def authorize_editor
-      unless editor?
-        flash[:warn] = "Unauthorized access"
-        redirect_back_or_default account_url
-        false        
-      end
-    end
-    
-    def editor?
-      current_user.editor?
-    end
 end

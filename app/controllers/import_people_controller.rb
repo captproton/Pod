@@ -2,6 +2,7 @@ require 'fastercsv'
 
 class ImportPeopleController < ApplicationController
   before_filter :require_user
+  grant_access_to "admin"
   
   def index
   end

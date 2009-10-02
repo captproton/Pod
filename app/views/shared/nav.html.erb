@@ -1,0 +1,23 @@
+<div class="nav">
+  <p class="nav-left">
+    <% if current_user %>
+      Logged in as <b><%= link_to h(current_user.login), current_user %></b> | 
+      Last visit <%= time_ago_or_time_stamp(session[:online_at]) %>
+    <% else %>
+    <% end %>
+  </p>
+  <p class="nav-right">
+    <% if current_user %>
+		<% if current_user.has_role? :staff %>
+		<%= link_to 'Start a New Article', new_article_path %>
+		| <%= link_to 'Upload a Document', new_document_path %>
+		<% end %>
+		| <%= link_to 'Logout', logout_path %>
+    <% end %>
+    <% if !current_user %>
+      <%= link_to 'Request an Invitation', '/' %> &nbsp;
+      <%= link_to 'Login', login_path %> 
+    <% end %>
+  </p>
+</div>
+<div style="clear:both"> </div>

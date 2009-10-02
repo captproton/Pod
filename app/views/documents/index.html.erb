@@ -45,7 +45,7 @@
       
     </span> -->
     <%= link_to pluralize(document.comments_count, 'comment'), document_path(document) %>
-	<% if editor? %>
+	<% if current_user.has_role? :staff %>
 	 | <%= link_to "Edit", edit_document_path(document) %>
      | <%= link_to "Destroy", document, :confirm => 'Are you sure?', :method => :delete %>
 	<% end %>

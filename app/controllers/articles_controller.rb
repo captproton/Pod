@@ -1,6 +1,11 @@
 class ArticlesController < ApplicationController
   before_filter :require_user
-  before_filter :authorize_editor => [:index, :show]
+  # All signed-in member can see the "show" and "index" pages
+  all_access_to   :only => [:show,:index]
+  # Editor has access to "new", "edit" and "create" and "update" but not "destroy"
+  grant_access_to "staff",  :except => :destroy
+  grant_access_to "admin"
+  
   def index
     if params[:context]
       tagging = params[:context].singularize

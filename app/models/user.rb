@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
     acts_as_tagger
   has_many :documents
   has_many :articles
-  
+  has_many :memberships
+  has_many :groups, :through => :memberships
   validates_presence_of :invitation_id, :message => "is required"
   validates_uniqueness_of :invitation_id
   
@@ -19,6 +20,14 @@ class User < ActiveRecord::Base
   
   def invitation_token=(token)
     self.invitation = Invitation.find_by_token(token)
+  end
+ 
+  def roles
+    groups.find(:all, :conditions => "context = 'role'")
+  end
+  
+  def has_role?(role)
+    roles.map{ |g| g.name.downcase.to_sym }.include?(role)
   end
  
 

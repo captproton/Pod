@@ -35,7 +35,7 @@
     </tr>
   <% end %>
 </table>
-<% if editor? %>
+<% if current_user.has_role? :staff %>
 
 <p><%= link_to "New Person", new_person_path %></p>
 <% end %>
