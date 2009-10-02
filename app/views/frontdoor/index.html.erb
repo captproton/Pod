@@ -1,11 +1,147 @@
-<% title "Welcome to Pod" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en' xml:lang='en' xmlns:fb='http://www.facebook.com/2008/fbml' xmlns='http://www.w3.org/1999/xhtml'>
+  <head><title>Login &mdash;
+    OSSPTO</title><meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+	<%= stylesheet_link_tag "all", :cache => false %>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.2.6/jquery.min.js" type="text/javascript"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.5.2/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="http://www.kickstarter.com/javascripts/cache-ksr.js?1254422142" type="text/javascript"></script>
+    <link href='/favicon.png' rel='icon' type='image/png' />
 
-<p>Welcome to Pod, a website dedicated to serve the members of Ocean Shore School PTO.  If you have already received your invitation, please <%= link_to "login", login_path %>.  If don't have an account yet, please fill out the form below.'</p>
+    
+    
+    
+    <script type='text/javascript'>
+      //<![CDATA[
+        $(function() { initMenu(['projects']); });
+        var AUTH_TOKEN = "A2TgqzHZcFj/d0F/EcyVT6bcuvZFm7C85sDYh7xAP5I=";
+      //]]>
+    </script>
+    
+  </head>
+  <body class='sessions' id='sessions_new' style="background-image:url('http://farm4.static.flickr.com/3328/3235339993_540f16bb11_b.jpg');
+background-size: 100%;">
+    <div class='center jGrowl' id='growl_section'></div>
+    <!-- // Main site navigation -->
+    <div id='header-outer'>
+      <div id='header'>
+        <!-- // Logo -->
 
-<% form_for Invitation.new do |f| %>
-  <p>
-    <%= f.label :recipient_email, "Your Email:" %>
-    <%= f.text_field :recipient_email %>
-    <%= f.submit 'Get Invite!' %>
-  </p>
-<% end %>
+        <h1>
+          <span id="h1title">
+            <a href="/">Pod</a>
+          </span>
+          <a href="/">
+            <span id="logoimg"></span>
+          </a>
+        </h1>
+
+        <div class='left' id='navigation'>
+          <div class='right'>
+          </div>
+
+
+        </div>
+        <div class='clear'></div>
+      </div>
+    </div>
+    
+    <div id='content'>
+      <div id='new-session'>
+
+        <div class='grey-frame grey-frame-narrow' style="background-color:#fff">
+	      <h1 class='title' style="color: green"><%= render :file => 'shared/flash' -%></h1>
+	
+          <div class='grey-frame-inner'>
+
+            <br />
+            <br />
+            <div class='left'>
+	            <h3 class='title'>Log In</h3>
+	
+              
+
+				<% form_for @user_session, :url => user_session_path,  :class => "new_user" do |f| %>
+				
+                <fieldset>
+                  <label for="email">Login Name</label>
+                  <%= f.text_field :login, :class => "text" %>
+                </fieldset>
+                <fieldset>
+                  <label for="password">Password</label>
+				  <%= f.password_field :password, :class => "password" %>
+
+                </fieldset>
+
+                <fieldset>
+                  <%= f.check_box :remember_me, :class => "checkbox" %>
+                  <label class="checkbox" for="remember_me">Remember Me</label>
+                </fieldset>
+                <div class='buttons'>
+                  <br />
+                  <input class="button submit" name="commit" type="submit" value="Login" />
+				  &nbsp;<%= link_to 'Cancel', root_path %>
+                </div>
+
+				<% end %>
+            </div>
+            <div class='left'><img alt="Or" class="vspacer" height="178" src="/images/misc/or.gif?1254422142" width="30" /></div>
+            <div class='left' id='fb-connect-tout'>
+	<h3  class='title'> Request An Invitation</h3>
+				<% form_for @invitation do |f| %>
+				  <%= f.error_messages %>
+
+				  <p>
+				    <%= f.label :recipient_email, "Your Email Address" %><br />
+				    <%= f.text_field :recipient_email, :class =>"text"  %>
+				  </p>
+
+				  <p><%= f.submit "Get Invitation!" %></p>
+				<% end %>
+				
+				Pod is an invitation-only website, for those in the Ocean Shore School Community.
+            </div>
+
+            <div class='clear'></div>
+          </div>
+        </div>
+        <br />
+
+      </div>
+    </div>
+
+    <hr class='clear' />
+    <div id='footer'>
+      <div id='etc'>
+
+        
+      </div>
+      <div id='legal'>
+
+      </div>
+    </div>
+    <script src="http://static.ak.connect.facebook.com/js/api_lib/v0.4/FeatureLoader.js.php" type="text/javascript"></script>
+
+    <script type='text/javascript'>
+      //<![CDATA[
+        var FBKey = 'df623a5548ca0f3b596c6fcc23053de7';
+        $('fb\\:login-button').livequery(function() {
+          FB.init(FBKey, '/xd_receiver.html');
+        });
+        $(document).ready(function() {
+          FB.init(FBKey, '/xd_receiver.html');
+          facebook_autolog(false);
+        });
+      //]]>
+    </script>
+    <script type="text/javascript">
+    var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+    document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+    </script>
+    <script type="text/javascript">
+    try {
+    var pageTracker = _gat._getTracker("UA-7621056-1");
+    pageTracker._trackPageview();
+    } catch(err) {}</script>
+  </body>
+</html>
