@@ -4,5 +4,12 @@
 
 <p>
   <%= link_to "Show", @document %> |
+	<% if current_user.has_role? :staff %>
+  <%= link_to "Edit", edit_document_path(@document) %> |
+	<% end %>
+	<% if current_user.has_role? :admin %>
+
+  <%= link_to "Destroy", @document, :confirm => 'Are you sure?', :method => :delete %> |
+	<% end %>
   <%= link_to "View All", documents_path %>
 </p>

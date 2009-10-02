@@ -2,7 +2,7 @@ class PeopleController < ApplicationController
   before_filter :require_user
   # All signed-in member can see the "show" and "index" pages
   all_access_to   :only => [:show,:index]
-  # Editor has access to "new", "edit" and "create" and "update" but not "destroy"
+  # Staff member has access to "new", "edit" and "create" and "update" but not "destroy"
   grant_access_to :staff, :except => [:destroy]
   
   grant_access_to :admin
