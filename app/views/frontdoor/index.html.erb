@@ -96,7 +96,11 @@ background-size: 100%;">
 				    <%= f.text_field :recipient_email, :class =>"text"  %>
 				  </p>
 
-				  <p><%= f.submit "Get Invitation!" %></p>
+                <div class='buttons'>
+                  <br />
+                  <input class="button submit" name="commit" type="submit" value="Get Invitation" />
+                </div>
+
 				<% end %>
 				
 				Pod is an invitation-only website, for those in the Ocean Shore School Community.
