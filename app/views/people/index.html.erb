@@ -23,15 +23,17 @@
       <td><%=h person.first_name %></td>
       <td><%=h person.address %></td>
       <td><%=h person.telephone %></td>
-      <td><%=h person.parents %></td>
-      <td><%=h person.email %></td>
+      <td><%= link_to h person.parents, person %></td>
+      <td><%= mail_to person.email %></td>
       <td><%=h person.classroom %></td>
       <td><%=h person.count %></td>
       <td><%=h person.corrected %></td>
       <td><%=h person.classroom_job %></td>
+	<% if current_user.has_role? :staff %>
       <td><%= link_to "Show", person %></td>
       <td><%= link_to "Edit", edit_person_path(person) %></td>
       <td><%= link_to "Destroy", person, :confirm => 'Are you sure?', :method => :delete %></td>
+	<% end %>
     </tr>
   <% end %>
 </table>
