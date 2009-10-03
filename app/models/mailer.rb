@@ -2,7 +2,7 @@ class Mailer < ActionMailer::Base
   def invitation(invitation, signup_url)
     subject    'Invitation to the new OSS website'
     recipients invitation.recipient_email
-    from       'foo@example.com'
+    from       'carl@oceanshore.org'
     body       :invitation => invitation, :signup_url => signup_url
     invitation.update_attribute(:sent_at, Time.now)
   end
