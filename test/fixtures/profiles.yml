@@ -1,0 +1,13 @@
+one:
+  more_info_url: MyString
+  bio: MyString
+  location: MyString
+  language: MyString
+  time_zone: MyString
+
+two:
+  more_info_url: MyString
+  bio: MyString
+  location: MyString
+  language: MyString
+  time_zone: MyString

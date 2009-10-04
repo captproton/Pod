@@ -1,0 +1,24 @@
+<% form_for @profile do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :more_info_url %><br />
+    <%= f.text_field :more_info_url %>
+  </p>
+  <p>
+    <%= f.label :bio %><br />
+    <%= f.text_field :bio %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :language %><br />
+    <%= f.text_field :language %>
+  </p>
+  <p>
+    <%= f.label :time_zone %><br />
+    <%= f.text_field :time_zone %>
+  </p>
+  <p><%= f.submit "Submit" %></p>
+<% end %>

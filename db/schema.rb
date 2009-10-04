@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091001165006) do
+ActiveRecord::Schema.define(:version => 20091004185811) do
 
   create_table "articles", :force => true do |t|
     t.string   "author_id"
@@ -72,6 +72,21 @@ ActiveRecord::Schema.define(:version => 20091001165006) do
     t.string   "classroom_job"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "profiles", :force => true do |t|
+    t.string   "more_info_url"
+    t.string   "bio",               :limit => 160
+    t.string   "location"
+    t.string   "language"
+    t.string   "time_zone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "icon_file_name"
+    t.string   "icon_content_type"
+    t.integer  "icon_file_size"
+    t.string   "full_name",         :limit => 160
+    t.integer  "user_id"
   end
 
   create_table "sessions", :force => true do |t|

@@ -1,0 +1,25 @@
+<% title "Profiles" %>
+
+<table>
+  <tr>
+    <th>More Info Url</th>
+    <th>Bio</th>
+    <th>Location</th>
+    <th>Language</th>
+    <th>Time Zone</th>
+  </tr>
+  <% for profile in @profiles %>
+    <tr>
+      <td><%=h profile.more_info_url %></td>
+      <td><%=h profile.bio %></td>
+      <td><%=h profile.location %></td>
+      <td><%=h profile.language %></td>
+      <td><%=h profile.time_zone %></td>
+      <td><%= link_to "Show", profile %></td>
+      <td><%= link_to "Edit", edit_profile_path(profile) %></td>
+      <td><%= link_to "Destroy", profile, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Profile", new_profile_path %></p>

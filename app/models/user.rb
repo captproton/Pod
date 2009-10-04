@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
   has_many :articles
   has_many :memberships
   has_many :groups, :through => :memberships
+  has_one :profile, :dependent=>:destroy
+  accepts_nested_attributes_for :profile
+  attr_accessible :profile_attributes # the format is the child_class followed by the "_attributes"
+  
   validates_presence_of :invitation_id, :message => "is required"
   validates_uniqueness_of :invitation_id
   

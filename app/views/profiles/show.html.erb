@@ -1,0 +1,28 @@
+<% title "Profile" %>
+
+<p>
+  <strong>More Info Url:</strong>
+  <%=h @profile.more_info_url %>
+</p>
+<p>
+  <strong>Bio:</strong>
+  <%=h @profile.bio %>
+</p>
+<p>
+  <strong>Location:</strong>
+  <%=h @profile.location %>
+</p>
+<p>
+  <strong>Language:</strong>
+  <%=h @profile.language %>
+</p>
+<p>
+  <strong>Time Zone:</strong>
+  <%=h @profile.time_zone %>
+</p>
+
+<p>
+  <%= link_to "Edit", edit_profile_path(@profile) %> |
+  <%= link_to "Destroy", @profile, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to "View All", profiles_path %>
+</p>
