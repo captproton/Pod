@@ -1,11 +1,11 @@
 development:
   session_key: eldorado_development
-  session_secret: ESl6X3oKM1i1RRrD2QLwUUzz9jr1zxNO
+  session_secret: SESSION_SECRET
   domain: http://example.com
 
 test:
   session_key: eldorado_test
-  session_secret: vrwPpJTvwnMVLP1wTSgqigSl7PMI7QcE
+  session_secret: SESSION_SECRET
   domain: http://example.com
   
 production:
@@ -23,7 +23,7 @@ production:
   # Visit the Amazon S3 site to sign up for an access_id and secret_key: https://s3.amazonaws.com/
   # The bucket name can be any unique string, and once set here it can be created by running "rake s3:create" 
   s3_access_id: 0XVAQR64TGCGWZ4W37R2
-  s3_secret_key: 2mkUk7BxE4fVu7J4zCmVGnhIL3kXQGn8GaEpl5QR
+  s3_secret_key: S3_SECRET_KEY
   s3_bucket_name: pod.oceanshore.org
   
   # EMAIL SETTINGS (optional, required for Heroku)
